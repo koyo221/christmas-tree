@@ -1,0 +1,185 @@
+:root {
+  --size: 400px;
+  --height: 346.41px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #243642;
+  perspective: 2000px;
+  overflow: hidden;
+}
+
+.tree {
+  position: relative;
+  width: 66%;
+  height: 66%;
+  transform-style: preserve-3d;
+  animation: rotate 5s linear infinite;
+  transform: rotateX(-15deg);
+}
+
+.tree::before {
+  content: "⭐︎";
+  position: relative;
+  top: -150px;
+  left: 165px;
+  font-size: 64px;
+}
+
+.leaves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.middle {
+  transform: translateY(150px);
+}
+
+.bottom {
+  transform: translateY(300px);
+}
+
+.leaf-1,
+.leaf-2,
+.leaf-3,
+.leaf-4 {
+  background: linear-gradient(#629584, #214035);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 346.41px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform-origin: bottom;
+}
+
+.leaf-1 {
+  transform: rotateY(0deg) rotateX(35.3deg) translateZ(245px);
+}
+
+.leaf-2 {
+  transform: rotateY(90deg) rotateX(35.3deg) translateZ(245px);
+}
+
+.leaf-3 {
+  transform: rotateY(180deg) rotateX(35.3deg) translateZ(245px);
+}
+
+.leaf-4 {
+  transform: rotateY(270deg) rotateX(35.3deg) translateZ(245px);
+}
+
+.top .leaf-1::before,
+.top .leaf-3::before {
+  content: "🟠";
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  opacity: 1;
+  font-size: 32px;
+}
+
+.top .leaf-1::after,
+.top .leaf-3::after {
+  content: "🍎";
+  position: absolute;
+  top: 250px;
+  left: 100px;
+  opacity: 1;
+  font-size: 32px;
+  rotate: -20deg;
+}
+
+.bottom .leaf-1::before,
+.bottom .leaf-3::after {
+  content: "🟠";
+  position: absolute;
+  top: 250px;
+  left: 150px;
+  font-size: 32px;
+}
+
+.top .leaf-2::before,
+.top .leaf-4::before {
+  content: "🔹";
+  position: absolute;
+  top: 200px;
+  left: 170px;
+  font-size: 48px;
+}
+
+.middle .leaf-2::before,
+.middle .leaf-4::before {
+  content: "🔹";
+  position: absolute;
+  top: 250px;
+  left: 100px;
+  font-size: 48px;
+  rotate: 10deg;
+}
+
+.middle .leaf-2::after,
+.middle .leaf-4::after {
+  content: "🔸";
+  position: absolute;
+  top: 270px;
+  left: 250px;
+  font-size: 48px;
+}
+
+.trunk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  transform: translateY(500px) translateX(160px);
+}
+
+.bark-1,
+.bark-2,
+.bark-3,
+.bark-4 {
+  background: linear-gradient(#503c3c, #261919);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  transform-origin: bottom;
+}
+
+.bark-1 {
+  transform: rotateY(0deg) translateZ(50px);
+}
+
+.bark-2 {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.bark-3 {
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.bark-4 {
+  transform: rotateY(270deg) translateZ(50px);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(-15deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-15deg) rotateY(360deg);
+  }
+}
